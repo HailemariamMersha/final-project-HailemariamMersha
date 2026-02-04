@@ -1,0 +1,32 @@
+<div class="scores-container">
+  <h1 class="scores-title">Your Scores</h1>
+  {{#if username}}
+  <div class="scores-username">Here are your scores {{username}}: </div>
+  {{/if}}
+  
+  {{#if scores.length}}
+  <div class="scores-list">
+    {{#each scores}}
+    <div class="score-item">
+      <div class="score-header">
+        <div class="score-date">{{this.dateFormatted}}</div>
+        <div class="score-difficulty">{{this.difficulty}}</div>
+      </div>
+      <div class="score-details">
+        <span>WPM: {{this.wpm}}</span>
+        <span>Accuracy: {{this.accuracy}}%</span>
+        <span>Words: {{this.correct}}</span>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{else}}
+  <div class="no-scores">No scores yet. Play a game to see your results here!</div>
+  {{/if}}
+  
+  <div class="scores-buttons">
+    <a href="/home" class="scores-button">Back to Home</a>
+    <a href="/play" class="scores-button">Play Again</a>
+  </div>
+</div>
+

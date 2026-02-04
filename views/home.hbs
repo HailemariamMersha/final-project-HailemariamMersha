@@ -1,0 +1,16 @@
+<div class="home-container">
+  <h1 class="home-title">TypeRush: Word Storm</h1>
+  {{#if username}}
+    <!-- Authenticated User View -->
+    <div class="home-layout">
+      <a href="/levels" class="home-button levels-btn">Levels</a>
+      <a href="/play?difficulty=Medium" class="home-button play-btn">Play</a>
+    </div>
+  {{else}}
+    <!-- Non-authenticated User View -->
+    <div class="home-buttons">
+      <a href="/auth/login" class="home-button">Login</a>
+      <a href="/auth/register" class="home-button">Register</a>
+    </div>
+  {{/if}}
+</div>

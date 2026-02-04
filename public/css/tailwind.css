@@ -1,0 +1,786 @@
+/* TypeRush: Word Storm - Custom Styles */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Papyrus&family=Trebuchet+MS:wght@400;700&display=swap');
+
+/* Global Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 2rem;
+}
+
+.home-title {
+  font-family: 'Papyrus', 'Comic Neue', cursive;
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #000000;
+}
+
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.home-button {
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.home-button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.home-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  gap: 2rem;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.levels-btn,
+.play-btn {
+  flex: 1;
+  max-width: 250px;
+  min-width: 150px;
+}
+
+@media (max-width: 768px) {
+  .home-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .levels-btn,
+  .play-btn {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* ============================================
+   LOGIN & REGISTER PAGES
+   ============================================ */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 2rem;
+}
+
+.auth-box {
+  background-color: #ffffff;
+  border: 2px solid #7b4b49;
+  border-radius: 20px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-title {
+  font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #000000;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.auth-input {
+  padding: 0.75rem 1rem;
+  border: 2px solid #7b4b49;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  outline: none;
+}
+
+.auth-input:focus {
+  border-color: #7b4b49;
+  box-shadow: 0 0 0 3px rgba(123, 75, 73, 0.2);
+}
+
+.auth-input::placeholder {
+  color: #666;
+}
+
+.auth-button {
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.auth-button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.auth-link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.auth-link a {
+  color: #7b4b49;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+.auth-error {
+  background-color: #fee;
+  color: #c33;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border: 1px solid #fcc;
+}
+
+.auth-success {
+  background-color: #efe;
+  color: #3c3;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border: 1px solid #cfc;
+}
+
+/* ============================================
+   PLAY PAGE (GAME SCREEN)
+   ============================================ */
+.game-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* Timer - Brown pill at top center */
+.game-timer {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #7b4b49;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  z-index: 1000;
+  font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Exit button - Top right */
+.game-exit {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.game-exit:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+
+.game-area {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 120px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.word {
+  position: absolute;
+  background-color: #7b4b49;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s;
+  user-select: none;
+}
+
+.word:hover {
+  transform: scale(1.05);
+}
+
+.game-input-container {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  z-index: 1000;
+}
+
+.game-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #b0a7a7;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.game-input:focus {
+  box-shadow: 0 0 0 3px rgba(176, 167, 167, 0.3);
+}
+
+/* Shake animation for incorrect input */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.game-area.shake {
+  animation: shake 0.3s;
+}
+
+.results-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 2rem;
+}
+
+.results-box {
+  background-color: #ffffff;
+  border: 3px solid #7b4b49;
+  border-radius: 20px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.results-title {
+  font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #000000;
+}
+
+.results-stats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.result-stat {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
+  flex: 1;
+  min-width: 120px;
+  max-width: 200px;
+}
+
+.result-stat-label {
+  color: #7b4b49;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-stat-value {
+  font-size: 2rem;
+  color: #000000;
+}
+
+.results-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.results-button {
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.results-button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 2.5rem;
+  }
+
+  .game-timer {
+    font-size: 1.5rem;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .word {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .game-input {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .auth-title,
+  .results-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .game-timer {
+    font-size: 1.2rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .word {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+   .game-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    z-index: 1001;
+  }
+  
+  .game-username {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #7b4b49;
+    margin-top: 5px;
+  }
+  
+  .game-stats {
+    position: absolute;
+    top: 90px;
+    left: 20px;
+    display: flex;
+    gap: 2rem;
+    z-index: 1000;
+    font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #7b4b49;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* ============================================
+     RESULTS PAGE ENHANCEMENTS
+     ============================================ */
+  .results-username {
+    font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #7b4b49;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .save-button {
+    background-color: #4CAF50 !important;
+  }
+  
+  .save-button:hover {
+    background-color: #45a049 !important;
+  }
+  
+  .previous-scores {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #7b4b49;
+  }
+  
+  .previous-scores-title {
+    font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .scores-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .score-item {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 4px solid #7b4b49;
+  }
+  
+  .score-date {
+    font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .score-details {
+    display: flex;
+    gap: 1rem;
+    font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  .score-details span {
+    font-size: 1rem;
+  }
+  
+  /* ============================================
+     LEVELS PAGE
+     ============================================ */
+  .levels-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 2rem;
+    position: relative;
+  }
+  
+  .back-button-top-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #7b4b49;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, opacity 0.2s;
+    z-index: 1000;
+  }
+  
+  .back-button-top-left:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  
+  .levels-title {
+    font-family: 'Papyrus', 'Comic Neue', cursive;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #000000;
+  }
+  
+  .levels-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .level-button {
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  
+  .level-button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  
+  /* ============================================
+     SCORES PAGE
+     ============================================ */
+  .scores-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    padding: 2rem;
+  }
+  
+  .scores-title {
+    font-family: 'Papyrus', 'Comic Neue', cursive;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #000000;
+  }
+  
+  .scores-username {
+    font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #7b4b49;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .scores-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 2rem;
+  }
+  
+  .score-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .score-difficulty {
+    font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #7b4b49;
+    background-color: #f5f5f5;
+    padding: 0.25rem 0.75rem;
+    border-radius: 10px;
+  }
+  
+  .no-scores {
+    font-family: 'Comic Neue', 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .scores-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .scores-button {
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  
+  .scores-button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 768px) {
+    .game-stats {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .stat-item {
+      padding: 0.4rem 0.8rem;
+    }
+    
+    .stat-value {
+      font-size: 1.2rem;
+    }
+    
+    .score-details {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .levels-title,
+    .scores-title {
+      font-size: 2.5rem;
+    }
+  }

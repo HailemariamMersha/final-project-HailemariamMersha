@@ -1,0 +1,41 @@
+<div class="game-container">
+  <div class="game-header">
+    <div id="timer" class="game-timer">60</div>
+    {{#if username}}
+    <div class="game-username">Look, {{username}} is typing!</div>
+    {{/if}}
+    <button id="exit-btn" class="game-exit" onclick="window.location.href='/home'">X</button>
+  </div>
+  <div class="game-stats">
+    <div class="stat-item">
+      <span class="stat-label">Score:</span>
+      <span id="score-display" class="stat-value">0</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Accuracy:</span>
+      <span id="accuracy-display" class="stat-value">100%</span>
+    </div>
+    {{#if difficulty}}
+    <div class="stat-item">
+      <span class="stat-label">Level:</span>
+      <span id="difficulty-display" class="stat-value">{{difficulty}}</span>
+    </div>
+    {{/if}}
+  </div>
+  <div id="game-area" class="game-area"></div>
+  <div class="game-input-container">
+    <input 
+      id="wordInput" 
+      type="text" 
+      class="game-input" 
+      placeholder="Type words here..." 
+      autocomplete="off"
+      autofocus
+    >
+  </div>
+</div>
+<script>
+  // Pass difficulty to game.js
+  window.GAME_DIFFICULTY = "{{difficulty}}";
+</script>
+<script src="/js/game.js"></script>

@@ -1,0 +1,61 @@
+<div class="results-container">
+  <div class="results-box">
+    {{#if username}}
+    <div class="results-username">{{username}}</div>
+    {{/if}}
+    <h1 class="results-title">Results</h1>
+    <div class="results-stats">
+      <div class="result-stat">
+        <div class="result-stat-label">WPM</div>
+        <div class="result-stat-value">{{wpm}}</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-label">Accuracy</div>
+        <div class="result-stat-value">{{accuracy}}%</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-label">Words Typed</div>
+        <div class="result-stat-value">{{words}}</div>
+      </div>
+      {{#if difficulty}}
+      <div class="result-stat">
+        <div class="result-stat-label">Difficulty</div>
+        <div class="result-stat-value">{{difficulty}}</div>
+      </div>
+      {{/if}}
+    </div>
+    <div class="results-buttons">
+      <a href="/scores" class="results-button">Scores</a>
+      <a href="/play" class="results-button">Play Again</a>
+      <a href="/home" class="results-button">Back to Home</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Automatically save score when results page loads
+  (async () => {
+    const params = new URLSearchParams(window.location.search);
+    const wpm = params.get('wpm') || 0;
+    const accuracy = params.get('accuracy') || 0;
+    const words = params.get('words') || 0;
+    const correct = params.get('correct') || words;
+    const wrong = params.get('wrong') || 0;
+    const difficulty = params.get('difficulty') || 'Medium';
+
+    try {
+      const response = await fetch('/api/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ wpm, accuracy, correct, wrong, words, difficulty })
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        console.log('Score saved automatically');
+      }
+    } catch (err) {
+      console.error('Auto-save error:', err);
+    }
+  })();
+</script>
