@@ -10,7 +10,12 @@ The game introduces increasing difficulty modes (“Easy”, “Medium”, “Ha
 Players can **register**, **log in**, play multiple sessions, and track their **high scores** over time.  
 The app uses **Express.js** and **MongoDB**, with AJAX interactions for updating scores and leaderboards.
 
+
 ---
+Try it out here: 
+---
+https://final-project-hailemariammersha.onrender.com
+
 
 ## Data Model  
 
